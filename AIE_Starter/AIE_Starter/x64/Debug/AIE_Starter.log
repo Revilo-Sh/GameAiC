@@ -1,2 +1,13 @@
 ﻿  AIE_Starter.cpp
+  NodeMap.cpp
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\packages\raylib.4.0.0.7\build\native\include\raymath.hpp(14,9): warning C4068: unknown pragma 'GCC'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\packages\raylib.4.0.0.7\build\native\include\raymath.hpp(15,9): warning C4068: unknown pragma 'GCC'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\packages\raylib.4.0.0.7\build\native\include\raymath.hpp(17,9): warning C4068: unknown pragma 'GCC'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\NodeMap.cpp(11,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\NodeMap.cpp(15,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\NodeMap.cpp(16,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\NodeMap.cpp(83,52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\NodeMap.cpp(83,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Pathfinding.cpp
+  Generating Code...
   AIE_Starter.vcxproj -> C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\x64\Debug\AIE_Starter.exe

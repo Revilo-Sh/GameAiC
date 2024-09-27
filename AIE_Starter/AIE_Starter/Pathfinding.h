@@ -30,6 +30,22 @@ namespace AIForGames
         glm::vec2 position;
         std::vector<Edge> connections;
 
+        /////
+        //Pathing Finding Types
+        ////
+
+        //DijkstrasSearch
+
+        std::vector<Node*> DijkstrasSearch(Node* startNode, Node* endNode);
+
+
+
+
+
+
+
+
+
         float gScore;
         Node* previous = NULL;
     };
