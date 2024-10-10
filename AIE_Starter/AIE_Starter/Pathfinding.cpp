@@ -1,23 +1,46 @@
 #include "Pathfinding.h"
 
-//
+
+
+namespace AIForGames {
+	std::vector<Node*> DijkstrasSearch(Node* startNode, Node* endNode)
+	{
+
+		std::vector<Node*> openList;
+		bool found;
+		Node* test;
+
+		if (std::find(openList.begin(), openList.end(), test) == openList.end()) {
+			found == false;
+		}
+		else
+		{
+			found == true;
+		}
+
+	
+		
+
+		return std::vector<Node*>();
+	}
+}
+
 //std::vector<Node*> AIForGames::Node::DijkstrasSearch(Node* startNode, Node* endNode)
 //{
 //
-//    // CONVERT ALL OF THIS TO REAL CODE
-//
-//
-//    std::vector<Node*> openList;
-//    bool found;
-//    Node* test;
-//    if (std::find(openList.begin(), openList.end(), test) == openList.end()) {
-//        found == false;
-//    }
-//    else
-//    {
-//        found == true;
-//    }
-//
+////////////////////    // CONVERT ALL OF THIS TO REAL CODE
+////////////////////
+////////////////////
+////////////////////    std::vector<Node*> openList;
+////////////////////    bool found;
+////////////////////    Node* test;
+////////////////////    if (std::find(openList.begin(), openList.end(), test) == openList.end()) {
+////////////////////        found == false;
+////////////////////    }
+////////////////////    else
+////////////////////    {
+////////////////////        found == true;
+////////////////////    }
 //
 //
 //    Procedure dijkstrasSearch(startNode, endNode)
@@ -84,3 +107,5 @@
 //                // Return the path for navigation between startNode/endNode
 //                Return Path
 //}
+
+
