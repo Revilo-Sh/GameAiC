@@ -1,27 +1,37 @@
 #include "Pathfinding.h"
-
-
+#include <iostream>
 
 namespace AIForGames {
 	std::vector<Node*> DijkstrasSearch(Node* startNode, Node* endNode)
 	{
 
-		std::vector<Node*> openList;
-		bool found;
-		Node* test;
+		//std::vector<Node*> openList;
+		//bool found;
+		//Node* test;
 
-		if (std::find(openList.begin(), openList.end(), test) == openList.end()) {
-			found == false;
-		}
-		else
+		//if (std::find(openList.begin(), openList.end(), test) == openList.end()) {
+		//	found == false;
+		//}
+		//else
+		//{
+		//	found == true;
+		//}
+
+
+		// Validate the input
+		if (startNode == nullptr || endNode == nullptr) 
 		{
-			found == true;
+			std::cout << "Stardnode / Endnode was nullptr:\n";
+			return std::vector<Node*>();
 		}
 
-	
-		
 
-		return std::vector<Node*>();
+		if (startNode == endNode) 
+		{
+			std::cout << "Starnode + Endnode were same point;\n";
+			return std::vector<Node*>();
+		}
+
 	}
 }
 
@@ -43,7 +53,7 @@ namespace AIForGames {
 ////////////////////    }
 //
 //
-//    Procedure dijkstrasSearch(startNode, endNode)
+//    Procedure dijkstrasSearch(startNode, endNode) // COME BACK TO ?? //
 //        // Validate the input
 //        if startNode is null OR endNode is null
 //            Raise Error

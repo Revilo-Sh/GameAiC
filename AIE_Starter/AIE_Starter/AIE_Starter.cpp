@@ -2,6 +2,8 @@
 #include "string"
 #include "Pathfinding.h"
 #include "NodeMap.h"
+#include <stdexcept>
+#include <iostream>
 
 using namespace AIForGames;
 
@@ -32,6 +34,9 @@ int main(int argc, char* argv[])
 
     NodeMap map;
     map.Initialise(asciiMap, 60);
+
+
+    
 
     // Main game loop
     while (!WindowShouldClose()) {    // Detect window close button or ESC key
