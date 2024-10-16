@@ -6,38 +6,52 @@ namespace AIForGames {
 	std::vector<Node*> DijkstrasSearch(Node* startNode, Node* endNode)
 	{
 		// Validate the input
-		if (startNode == nullptr || endNode == nullptr) 
+		if (startNode == nullptr || endNode == nullptr) // Check to See If Startpoint // Endpoint is on a nullptr
 		{
-			std::cout << "Stardnode / Endnode was nullptr:\n";
+			std::cout << "Stardnode / Endnode was nullptr:\n"; // Send Error Message
 			return std::vector<Node*>();
 		}
 
 
-		if (startNode == endNode) 
+		if (startNode == endNode) // Check To see if both Start and End Points are on the same Cell/Node
 		{
-			std::cout << "Starnode + Endnode were same point;\n";
+			std::cout << "Starnode + Endnode were same point;\n";// Send Error Message
 			return std::vector<Node*>();
 		}
 		
 		// Set The Startting Node
-		startNode->gScore = 0;
+		startNode->gScore = 0; 
 		startNode->previous = nullptr;
 
 		// Create our Temp Lists For Holding Nodes
-		std::vector<Node*> openList;
-		std::vector<Node*> closeList;
+		std::vector<Node*> openList; // Setting Up the Open List
+		std::vector<Node*> closeList; // Setting Up the Close List
 
 		openList.push_back(startNode);
-
-		while (!openList.empty())
+		
+		// Adding To the List
+		while (!openList.empty()) // Check to See If the List Is Not empty If so Then || START ||
 		{
-			std::sort(openList.begin(), openList.end(), CompareGScore);
-			Node* currentNode = openList.front();
-			if (currentNode == endNode) { 
-				break;
+			std::sort(openList.begin(), openList.end(), CompareGScore); // sorts list
+			Node* currentNode = openList.front(); // Add Node to List
+			if (currentNode == endNode) { // Check to See if current Node is end node
+				break; // end the while loop
 			}
-
 		}
+
+		// Move Ndoe From Open List To Close List
+		std::sort(closeList.begin(), closeList.end(), CompareGScore); // sorts list
+		Node* currentNode = closeList.front(); // adds to the list
+		openList.clear(); // clear the whole openlist
+		
+		for (const auto& c :currentNode->connections) // Gose Throguht the Vector Looking For Cells/Nodes With connections
+		{
+			std::find(closeList.begin(), closeList.end(), c.target);
+			int gScore = currentNode->gScore + c.cost; // Add The Points Based Off a distance To see if it the smallest Path
+		}
+
+
+		
 	}
 }
 
@@ -67,7 +81,6 @@ namespace AIForGames {
 //                // Initialise the starting node
 //                Set startNode.gScore to 0
 //                Set startNode.previous to null
-
 //////////        // Create our temporary lists for storing nodes we’re visiting/visited
 //////////                Let openList be a List of Nodes
 //////////                Let closedList be a List of Nodes
@@ -85,18 +98,17 @@ namespace AIForGames {
 //                // but doesn’t always guarantee the shortest path.
 //                If currentNode is endNode
 //                Exit While Loop
-//
+
+//                Remove currentNode from openList
+//                Add currentNode to closedList
+//                For all connections c in currentNode
+//                If c.target not in closedList
+//                Let gScore = currentNode.gScore + c.cost
+// 
 // 
 
 // 
 // 
-//                Remove currentNode from openList
-//                Add currentNode to closedList
-//
-//                For all connections c in currentNode
-//                If c.target not in closedList
-//                Let gScore = currentNode.gScore + c.cost
-//
 //                // Have not yet visited the node.
 //                // So calculate the Score and update its parent.
 //                // Also add it to the openList for processing.
