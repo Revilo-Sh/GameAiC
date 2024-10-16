@@ -32,8 +32,11 @@ namespace AIForGames
 
         float gScore;
         Node* previous = NULL;
+
+        
     };
 
+    static bool CompareGScore(const Node* Ihs, const Node* Rhs) { return Ihs->gScore < Rhs->gScore; }
 
     /////
       //Pathing Finding Types

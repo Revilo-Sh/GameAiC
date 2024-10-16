@@ -1,23 +1,10 @@
 #include "Pathfinding.h"
 #include <iostream>
+#include <algorithm>
 
 namespace AIForGames {
 	std::vector<Node*> DijkstrasSearch(Node* startNode, Node* endNode)
 	{
-
-		//std::vector<Node*> openList;
-		//bool found;
-		//Node* test;
-
-		//if (std::find(openList.begin(), openList.end(), test) == openList.end()) {
-		//	found == false;
-		//}
-		//else
-		//{
-		//	found == true;
-		//}
-
-
 		// Validate the input
 		if (startNode == nullptr || endNode == nullptr) 
 		{
@@ -31,7 +18,26 @@ namespace AIForGames {
 			std::cout << "Starnode + Endnode were same point;\n";
 			return std::vector<Node*>();
 		}
+		
+		// Set The Startting Node
+		startNode->gScore = 0;
+		startNode->previous = nullptr;
 
+		// Create our Temp Lists For Holding Nodes
+		std::vector<Node*> openList;
+		std::vector<Node*> closeList;
+
+		openList.push_back(startNode);
+
+		while (!openList.empty())
+		{
+			std::sort(openList.begin(), openList.end(), CompareGScore);
+			Node* currentNode = openList.front();
+			if (currentNode == endNode) { 
+				break;
+			}
+
+		}
 	}
 }
 
@@ -51,8 +57,6 @@ namespace AIForGames {
 ////////////////////    {
 ////////////////////        found == true;
 ////////////////////    }
-//
-//
 //    Procedure dijkstrasSearch(startNode, endNode) // COME BACK TO ?? //
 //        // Validate the input
 //        if startNode is null OR endNode is null
@@ -60,22 +64,20 @@ namespace AIForGames {
 //
 //            if startNode == endNode
 //                return empty Path
-//
 //                // Initialise the starting node
 //                Set startNode.gScore to 0
 //                Set startNode.previous to null
-//
-//                // Create our temporary lists for storing nodes we’re visiting/visited
-//                Let openList be a List of Nodes
-//                Let closedList be a List of Nodes
-//
+
+//////////        // Create our temporary lists for storing nodes we’re visiting/visited
+//////////                Let openList be a List of Nodes
+//////////                Let closedList be a List of Nodes
+//////////
 //                Add startNode to openList
 //
 //                While openList is not empty
 //                Sort openList by Node.gScore
 //
 //                Let currentNode = first item in openList
-//
 //                // If we visit the endNode, then we can exit early.
 //                // Sorting the openList above guarantees the shortest path is found,
 //                // given no negative costs (a prerequisite of the algorithm).
@@ -84,6 +86,10 @@ namespace AIForGames {
 //                If currentNode is endNode
 //                Exit While Loop
 //
+// 
+
+// 
+// 
 //                Remove currentNode from openList
 //                Add currentNode to closedList
 //
