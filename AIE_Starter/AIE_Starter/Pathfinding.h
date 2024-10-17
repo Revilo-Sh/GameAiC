@@ -5,6 +5,8 @@
 
 namespace AIForGames
 {
+    
+
     struct Node;
 
     struct Edge {
@@ -37,14 +39,8 @@ namespace AIForGames
     };
 
     static bool CompareGScore(const Node* Ihs, const Node* Rhs) { return Ihs->gScore < Rhs->gScore; }
-
-    /////
-      //Pathing Finding Types
-      ////
-
-      //DijkstrasSearch
-
-
     static std::vector<Node*> DijkstrasSearch(Node* startNode, Node* endNode);
+
+    void DrawPath(std::vector<Node*> path);
 
 }

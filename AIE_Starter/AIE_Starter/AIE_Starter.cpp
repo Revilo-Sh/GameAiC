@@ -35,6 +35,11 @@ int main(int argc, char* argv[])
     NodeMap map;
     map.Initialise(asciiMap, 60);
 
+    // Setting Up the DijkstrasSearch
+    Node* Start = map.GetNode(1, 1); 
+    Node* end = map.GetNode(10, 2);
+    std::vector<Node*>nodeMapPath = DijkstrasSearch(Start, end); // Setting the Start and the end to the DijkstarasSearch
+    Color linecolour = { 255, 255, 255, 255 }; // Setting the Line colour
 
     
 
@@ -44,7 +49,10 @@ int main(int argc, char* argv[])
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
-        map.Draw();
+        map.Draw(); // Rendering the Map
+        
+        AIForGames::DrawPath()
+
 
         EndDrawing();
     }

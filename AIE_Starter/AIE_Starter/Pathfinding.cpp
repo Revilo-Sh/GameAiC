@@ -7,6 +7,7 @@ namespace AIForGames {
 	{
 
 		// https://aie.instructure.com/courses/1344/pages/artificial-intelligence-for-games-pathfinding-2-pathfinding The Weblink to the assiment
+		//https://cplusplus.com/reference/vector/vector/ Vectors Page
 
 		// Validate the input
 		if (startNode == nullptr || endNode == nullptr) // Check to See If Startpoint // Endpoint is on a nullptr
@@ -30,6 +31,8 @@ namespace AIForGames {
 		std::vector<Node*> openList; // Setting Up the Open List
 		std::vector<Node*> closeList; // Setting Up the Close List
 
+		Node* currentNode = openList.front(); // Declares the current node ref and puts it to front of openlist
+
 		openList.push_back(startNode); // add start Node to the list
 		
 		// Adding To the List
@@ -37,7 +40,6 @@ namespace AIForGames {
 		{
 			std::sort(openList.begin(), openList.end(), CompareGScore); // sorts list
 
-			Node* currentNode = openList.front(); // Add Node to List
 
 			if (currentNode == endNode) { // Check to See if current Node is end node
 				break; // end the while loop
@@ -56,8 +58,8 @@ namespace AIForGames {
 
 					if (std::find(openList.begin(), openList.end(), c.target) != closeList.end())//is the target in the openlist?
 					{
-						c.target->gScore = gScore; //Set c.target.gScore = gScore
-						c.target->previous = currentNode; //Set c.target.previous = currentNode
+						c.target->gScore = gScore; // Setting the c target g score to gscore
+						c.target->previous = currentNode; //Setting c.target.previous to the currentNode
 						openList.push_back(currentNode);//Add c.target to openList
 					}
 					else if (c.target->gScore > gScore) //is the calculated gscore lower than it's current gscore
@@ -68,86 +70,22 @@ namespace AIForGames {
 				}	
 			}
 		}
+		// Create a Path in reverse from endnode to start node
+
+		std::vector<Node*> Path; // Making a Vector List
+		currentNode = endNode; // Set the current node to the Endnode Pos/Cell
+		while (currentNode != nullptr) // Check to see if current node is not a nullptr
+		{
+			Path.insert(Path.begin(), currentNode); // Add the Current Node to the frount of the Path Vector List
+			currentNode = currentNode->previous; // set the current path to the previous path 
+		}
+	}
+
+	void DrawPath(std::vector<Node*> path)
+	{
+
 	}
 }
 
-//std::vector<Node*> AIForGames::Node::DijkstrasSearch(Node* startNode, Node* endNode)
-//{
-//
-////////////////////    // CONVERT ALL OF THIS TO REAL CODE
-////////////////////
-////////////////////
-////////////////////    std::vector<Node*> openList;
-////////////////////    bool found;
-////////////////////    Node* test;
-////////////////////    if (std::find(openList.begin(), openList.end(), test) == openList.end()) {
-////////////////////        found == false;
-////////////////////    }
-////////////////////    else
-////////////////////    {
-////////////////////        found == true;
-////////////////////    }
-//    Procedure dijkstrasSearch(startNode, endNode) // COME BACK TO ?? //
-//        // Validate the input
-//        if startNode is null OR endNode is null
-//            Raise Error
-//
-//            if startNode == endNode
-//                return empty Path
-//                // Initialise the starting node
-//                Set startNode.gScore to 0
-//                Set startNode.previous to null
-//////////        // Create our temporary lists for storing nodes we’re visiting/visited
-//////////                Let openList be a List of Nodes
-//////////                Let closedList be a List of Nodes
-//////////
-//                Add startNode to openList
-//
-//                While openList is not empty
-//                Sort openList by Node.gScore
-//
-//                Let currentNode = first item in openList
-//                // If we visit the endNode, then we can exit early.
-//                // Sorting the openList above guarantees the shortest path is found,
-//                // given no negative costs (a prerequisite of the algorithm).
-//                // This is an optional optimisation that improves performance,
-//                // but doesn’t always guarantee the shortest path.
-//                If currentNode is endNode
-//                Exit While Loop
-//                Remove currentNode from openList
-//                Add currentNode to closedList
-//                For all connections c in currentNode
-//                If c.target not in closedList
-//                Let gScore = currentNode.gScore + c.cost
-// 
-// 
-// 
-// 
-//                // Have not yet visited the node.
-//                // So calculate the Score and update its parent.
-//                // Also add it to the openList for processing.
-//                If c.target not in openList
-//                Set c.target.gScore = gScore
-//                Set c.target.previous = currentNode
-//                Add c.target to openList
-//
-//                // Node is already in the openList with a valid Score.
-//                // So compare the calculated Score with the existing
-//                // to find the shorter path.
-//                Else if (gScore < c.target.gScore)
-//                Set c.target.gScore = gScore
-//                Set c.target.previous = currentNode
-//
-//                // Create Path in reverse from endNode to startNode
-//                Let Path be a list of Nodes
-//                Let currentNode = endNode
-//
-//                While currentNode is not null
-//                Add currentNode to beginning of Path
-//                Set currentNode = currentNode.previous
-//
-//                // Return the path for navigation between startNode/endNode
-//                Return Path
-//}
 
 
