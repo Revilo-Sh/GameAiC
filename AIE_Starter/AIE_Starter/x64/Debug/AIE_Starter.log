@@ -1,2 +1,112 @@
 ﻿  AIE_Starter.cpp
-  AIE_Starter.vcxproj -> C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\x64\Debug\AIE_Starter.exe
+  NodeMap.cpp
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\packages\raylib.4.0.0.7\build\native\include\raymath.hpp(14,9): warning C4068: unknown pragma 'GCC'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\packages\raylib.4.0.0.7\build\native\include\raymath.hpp(15,9): warning C4068: unknown pragma 'GCC'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\packages\raylib.4.0.0.7\build\native\include\raymath.hpp(17,9): warning C4068: unknown pragma 'GCC'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\NodeMap.cpp(11,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\NodeMap.cpp(15,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\NodeMap.cpp(16,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\NodeMap.cpp(83,52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\NodeMap.cpp(83,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Pathfinding.cpp
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(49,13): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(50,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): error C2678: binary '+': no operator found which takes a left-hand operand of type 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>' (or there is no acceptable conversion)
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(302,46): message : could be 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>::operator +(const __int64) noexcept const'
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(129,59): message : or       'std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>::operator +(const __int64,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>) noexcept' [found using argument-dependent lookup]
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(308,53): message : or       'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>::operator +(const __int64,std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>) noexcept' [found using argument-dependent lookup]
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1490,50): message : or       'std::reverse_iterator<_BidIt> std::operator +(reverse_iterator<_BidIt>::difference_type,const std::reverse_iterator<_BidIt> &) noexcept(<expr>)'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::reverse_iterator<_BidIt> std::operator +(reverse_iterator<_BidIt>::difference_type,const std::reverse_iterator<_BidIt> &) noexcept(<expr>)': could not deduce template argument for 'const std::reverse_iterator<_BidIt> &' from 'AIForGames::Node *'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(3657,5): message : or       'std::move_iterator<_Iter> std::operator +(move_iterator<_Iter>::difference_type,const std::move_iterator<_Iter> &) noexcept(<expr>)'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::move_iterator<_Iter> std::operator +(move_iterator<_Iter>::difference_type,const std::move_iterator<_Iter> &) noexcept(<expr>)': could not deduce template argument for 'const std::move_iterator<_Iter> &' from 'AIForGames::Node *'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5077,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const std::basic_string<_Elem,_Traits,_Alloc> &)'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5089,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem *const ,const std::basic_string<_Elem,_Traits,_Alloc> &)'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem *const ,const std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'const _Elem *const ' from 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5102,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem,const std::basic_string<_Elem,_Traits,_Alloc> &)'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem,const std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'AIForGames::Node *'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5113,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem *const )'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem *const )': could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5126,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5137,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,std::basic_string<_Elem,_Traits,_Alloc> &&)'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,std::basic_string<_Elem,_Traits,_Alloc> &&)': could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5143,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const std::basic_string<_Elem,_Traits,_Alloc> &)'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &&' from 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5149,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,std::basic_string<_Elem,_Traits,_Alloc> &&)'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,std::basic_string<_Elem,_Traits,_Alloc> &&)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &&' from 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5162,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem *const ,std::basic_string<_Elem,_Traits,_Alloc> &&)'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem *const ,std::basic_string<_Elem,_Traits,_Alloc> &&)': could not deduce template argument for 'const _Elem *const ' from 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5168,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem,std::basic_string<_Elem,_Traits,_Alloc> &&)'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem,std::basic_string<_Elem,_Traits,_Alloc> &&)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &&' from 'AIForGames::Node *'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5174,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem *const )'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem *const )': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &&' from 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5180,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem)'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &&' from 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(53,32): message : while trying to match the argument list '(std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>, AIForGames::Node *)'
+          with
+          [
+              _Ty=AIForGames::Node *
+          ]
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(54,9): error C2374: 'currentNode': redefinition; multiple initialization
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(44,9): message : see declaration of 'currentNode'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(61,8): error C2059: syntax error: ')'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(62,4): error C2143: syntax error: missing ';' before '{'
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp(63,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Generating Code...

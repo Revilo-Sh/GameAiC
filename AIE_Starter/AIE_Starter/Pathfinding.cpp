@@ -5,6 +5,9 @@
 namespace AIForGames {
 	std::vector<Node*> DijkstrasSearch(Node* startNode, Node* endNode)
 	{
+
+		// https://aie.instructure.com/courses/1344/pages/artificial-intelligence-for-games-pathfinding-2-pathfinding The Weblink to the assiment
+
 		// Validate the input
 		if (startNode == nullptr || endNode == nullptr) // Check to See If Startpoint // Endpoint is on a nullptr
 		{
@@ -27,31 +30,44 @@ namespace AIForGames {
 		std::vector<Node*> openList; // Setting Up the Open List
 		std::vector<Node*> closeList; // Setting Up the Close List
 
-		openList.push_back(startNode);
+		openList.push_back(startNode); // add start Node to the list
 		
 		// Adding To the List
 		while (!openList.empty()) // Check to See If the List Is Not empty If so Then || START ||
 		{
 			std::sort(openList.begin(), openList.end(), CompareGScore); // sorts list
+
 			Node* currentNode = openList.front(); // Add Node to List
+
 			if (currentNode == endNode) { // Check to See if current Node is end node
 				break; // end the while loop
 			}
-		}
 
-		// Move Ndoe From Open List To Close List
-		std::sort(closeList.begin(), closeList.end(), CompareGScore); // sorts list
-		Node* currentNode = closeList.front(); // adds to the list
-		openList.clear(); // clear the whole openlist
+			// Move Ndoe From Open List To Close List
+			Node* currentNode = openList.front(); // adds to the list
+			openList.erase(openList.begin()); // Need To Fix Remove
+			closeList.push_back(currentNode); // Adds the data to the Vector
 		
-		for (const auto& c :currentNode->connections) // Gose Throguht the Vector Looking For Cells/Nodes With connections
-		{
-			std::find(closeList.begin(), closeList.end(), c.target);
-			int gScore = currentNode->gScore + c.cost; // Add The Points Based Off a distance To see if it the smallest Path
+			for (Edge c : currentNode->connections) // Gose Throguht the Vector Looking For Cells/Nodes With connections
+			{
+				if (std::find(closeList.begin(), closeList.end(), c.target) != closeList.end()) // Check to See if target not in CloseList
+				{
+					int gScore = currentNode->gScore + c.cost; // Add The Points Based Off a distance To see if it the smallest Path
+
+					if (std::find(openList.begin(), openList.end(), c.target) != closeList.end())//is the target in the openlist?
+					{
+						c.target->gScore = gScore; //Set c.target.gScore = gScore
+						c.target->previous = currentNode; //Set c.target.previous = currentNode
+						openList.push_back(currentNode);//Add c.target to openList
+					}
+					else if (c.target->gScore > gScore) //is the calculated gscore lower than it's current gscore
+					{
+						c.target->gScore = gScore; //Set c.target.gScore = gScore
+						c.target->previous = currentNode; //Set c.target.previous = currentNode
+					}
+				}	
+			}
 		}
-
-
-		
 	}
 }
 
@@ -98,7 +114,6 @@ namespace AIForGames {
 //                // but doesn’t always guarantee the shortest path.
 //                If currentNode is endNode
 //                Exit While Loop
-
 //                Remove currentNode from openList
 //                Add currentNode to closedList
 //                For all connections c in currentNode
@@ -106,7 +121,6 @@ namespace AIForGames {
 //                Let gScore = currentNode.gScore + c.cost
 // 
 // 
-
 // 
 // 
 //                // Have not yet visited the node.
