@@ -3,8 +3,10 @@
 #include "Pathfinding.h"
 #include "PathfindingAlg.h"
 #include "NodeMap.h"
+#include "PathAgent.h"
 #include <stdexcept>
 #include <iostream>
+
 
 using namespace AIForGames;
 
@@ -36,6 +38,7 @@ int main(int argc, char* argv[])
     NodeMap map;
     map.Initialise(asciiMap, 60);
 
+
     // Setting Up the DijkstrasSearch
     Node* Start = map.GetNode(1, 1); 
     Node* end = map.GetNode(10, 2);
@@ -43,15 +46,37 @@ int main(int argc, char* argv[])
     Color linecolour = { 255, 255, 255, 255 }; // Setting the Line colour
 
     
+    // Setting Up the Pathing Agent
+    PathAgent Agent;
+    Agent.SetNode(Start);
+    Agent.SetSpeed(64);
+
+
+
+    float time = (float)GetTime();
+    float deltaTime;
 
     // Main game loop
     while (!WindowShouldClose()) {    // Detect window close button or ESC key
-
+        float fTime = (float)GetTime();
+        deltaTime = fTime - time;
+        time = fTime;
         BeginDrawing();
 
         ClearBackground(BLACK);
         map.Draw(); // Rendering the Map
         
+
+        // Setting Up the Player Inputs
+        if (IsMouseButtonPressed(0)) { // Checking To See if the Left Mouse buttion is press
+            Vector2 mousePos = GetMousePosition();
+            Node* end = map.GetClosestNode(glm::vec2(mousePos.x, mousePos.y));
+            Agent.GoToNode(end);
+        }
+
+        Agent.Update(deltaTime);
+        Agent.Draw(DARKBLUE);
+
         AIForGames::DrawPath(nodeMapPath, GREEN);
         EndDrawing();
     }

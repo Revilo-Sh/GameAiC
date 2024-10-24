@@ -88,6 +88,16 @@ namespace AIForGames
 			}
 		}
 	}
+	Node* NodeMap::GetClosestNode(glm::vec2 worldPos)
+	{
+		int i = (int)(worldPos.x / m_cellsize);
+		if (i < 0 || i >-m_with) return nullptr;
+
+		int j = (int)(worldPos.y / m_cellsize);
+		if (j < 0 || j >-m_height) return nullptr;
+		return GetNode(i, j);
+		
+	}
 }
 
 

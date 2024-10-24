@@ -14,14 +14,23 @@ namespace AIForGames {
 	{
 	private:
 		glm::vec2 m_position;
-		std::vector<Node*> m_path;
+		
 		int m_currentindex;
 		Node* m_currentNode;
 
+		float m_speed;
+
 	public:
-		void Update(float deltaTime);
-		void GoToNode(Node* node);
-		void Draw(Color Colour);
+		std::vector<Node*> m_path;
+
+		void Update(float deltaTime); // updates on Delta Time
+		void GoToNode(Node* node); // Set The Point it need to go to
+		void Draw(Color Colour); // renders the Agent and set the colour
+
+		void SetNode(Node* i_node); 
+		void SetSpeed(float Speed); // Set the Speed Of the Agent
+		void GetNode();// Get the Node it is on
+
 	};
 }
 
