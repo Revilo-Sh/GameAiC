@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "string"
 #include "Pathfinding.h"
+#include "PathfindingAlg.h"
 #include "NodeMap.h"
 #include <stdexcept>
 #include <iostream>
@@ -38,7 +39,7 @@ int main(int argc, char* argv[])
     // Setting Up the DijkstrasSearch
     Node* Start = map.GetNode(1, 1); 
     Node* end = map.GetNode(10, 2);
-    std::vector<Node*>nodeMapPath = DijkstrasSearch(Start, end); // Setting the Start and the end to the DijkstarasSearch
+    std::vector<Node*>nodeMapPath = AIForGames::DijkstrasSearch(Start, end); // Setting the Start and the end to the DijkstarasSearch
     Color linecolour = { 255, 255, 255, 255 }; // Setting the Line colour
 
     
@@ -48,12 +49,10 @@ int main(int argc, char* argv[])
 
         BeginDrawing();
 
-        ClearBackground(RAYWHITE);
+        ClearBackground(BLACK);
         map.Draw(); // Rendering the Map
         
-        AIForGames::DrawPath()
-
-
+        AIForGames::DrawPath(nodeMapPath, GREEN);
         EndDrawing();
     }
 

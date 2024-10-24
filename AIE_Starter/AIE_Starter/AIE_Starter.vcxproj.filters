@@ -35,5 +35,8 @@
     <ClInclude Include="NodeMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PathfindingAlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

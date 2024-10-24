@@ -2,12 +2,14 @@
 
 #include <glm/glm.hpp>
 #include <vector>
+#include "raylib.h"
 
 namespace AIForGames
 {
-    
-
     struct Node;
+
+    //std::vector<Node*> Path; // Making a Vector List
+
 
     struct Edge {
         Node* target;
@@ -38,9 +40,6 @@ namespace AIForGames
         
     };
 
-    static bool CompareGScore(const Node* Ihs, const Node* Rhs) { return Ihs->gScore < Rhs->gScore; }
-    static std::vector<Node*> DijkstrasSearch(Node* startNode, Node* endNode);
-
-    void DrawPath(std::vector<Node*> path);
+    void DrawPath(std::vector<Node*> path, Color color);
 
 }

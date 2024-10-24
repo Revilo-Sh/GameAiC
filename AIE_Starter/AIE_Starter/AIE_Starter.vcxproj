@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="NodeMap.h" />
     <ClInclude Include="Pathfinding.h" />
+    <ClInclude Include="PathfindingAlg.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
