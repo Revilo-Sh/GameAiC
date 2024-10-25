@@ -1,6 +1,5 @@
-﻿  PathAgent.cpp
+﻿  AIE_Starter.cpp
 C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\PathfindingAlg.h(62,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\PathfindingAlg.h(66,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\PathfindingAlg.h(72,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\PathAgent.cpp(26,10): warning C4553: '==': result of expression not used; did you intend '='?
   AIE_Starter.vcxproj -> C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\x64\Debug\AIE_Starter.exe

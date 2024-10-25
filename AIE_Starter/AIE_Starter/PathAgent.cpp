@@ -2,6 +2,7 @@
 
 
 // https://aie.instructure.com/courses/1344/pages/artificial-intelligence-for-games-pathfinding-3-agents // WebLink To Course Page
+// https://cplusplus.com/reference/vector/vector/ Vectors Page
 
 void AIForGames::PathAgent::GoToNode(Node* node)
 {
@@ -23,20 +24,34 @@ void AIForGames::PathAgent::Update(float deltaTime)
 	if (dist < 0) { // Check to See if Distance is < 0;
 		dist *= -1; // Makes the Number Positive
 	}
-	
+
 
 	//Unit Vector (calculate a normalized directional vector from pathagent to the current node)
 	//To calculate unit vector, calculate translation vector from pathagent position to currentnode position
 	//divide vector components by it's magnitude (divide this translation vector by the distance calculated earlier)
 
-	//Subtract speed * deltaTime from the distance (how much we’re going to move this frame)
+	float result = dist - m_speed * deltaTime; // need more here
+	glm::vec2 direction = m_currentNode->position;
+	direction.x /= dist;
+	direction.y /= dist;
+
+
+		//Subtract speed * deltaTime from the distance (how much we’re going to move this frame)
 	//Distance = how far away from current node
 	//speed * deltaTime = how far pathagent can travel this frame
 	//distance -= speed*deltatime  /=/  can we fully travel to the node this frame?
 
+	if (result > 0) {
+		m_position += m_speed * deltaTime; // need more here
+	}
+
 	//if we cannot fully travel, (distance > 0 still)
 	//this frame we move our pathagent towards our current node 
 	//unit vector * speed * deltatime added to pathagent m_position
+
+	if (dist > 0) {
+
+	}
 
 	//if we can fully travel (distance < 0)
 	//we will be overshooting/moving past our current node so we cannot use same logic as above
@@ -47,50 +62,13 @@ void AIForGames::PathAgent::Update(float deltaTime)
 	//if we are at the end of our path (vector of nodes) we can snap to the end node position and clear the path
 	// 
 	// SET CURRENTNODE TO BE M_PATH[CURRENTINDEX]
+	
+
+
 	// 
 	//if not then we need to calculate a new unit vector from our previous node to our new currentNode
 	//move along this vector by how much we overshot the distance (inverse distance value from negative to positive, multiply by this unit vector)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//	//Calculate the distance to the next node and the unit vector to that node
-//	
-//{
-//	
-//			float dist = (m_position.x + m_position.y) - (n)
-//			
-//	
-//	
-//
-//
-//	//Subtract speed * deltaTime from the distance (how much we’re going to move this frame)
-//
-//	m_speed - deltaTime;
-//
-//	
-//
-//	//If distance is greater than zero, then this frame we’re just moving towards the target node. Add speed*deltaTime*unit vector to our position
-//	
-//	//Otherwise, we’ve overshot the node. Add one to currentIndex. If we’ve reached the end of our path, snap to the final node and empty the path
-//	//so future updates do nothing.
-//	
-//	//If we have a next node, then distance with the subtracted speed*deltaTime tells us how far we’ve overshot the node if we invert it. Find the
-//	//unit vector from our previous node to the new next node, and move along this vector by the overshoot distance from the previous next node.
-//	
 }
 
 

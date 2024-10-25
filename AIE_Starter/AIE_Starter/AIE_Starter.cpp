@@ -7,11 +7,12 @@
 #include <stdexcept>
 #include <iostream>
 
-
+using namespace std;
 using namespace AIForGames;
 
 int main(int argc, char* argv[])
 {
+    int State = 1;
     /////////////////////////////////////////////////////////////////////////////////////////////////
     // WINDOWS SETUP
     /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -40,15 +41,15 @@ int main(int argc, char* argv[])
 
 
     // Setting Up the DijkstrasSearch
-    Node* Start = map.GetNode(1, 1); 
+    Node* start = map.GetNode(1, 1); 
     Node* end = map.GetNode(10, 2);
-    std::vector<Node*>nodeMapPath = AIForGames::DijkstrasSearch(Start, end); // Setting the Start and the end to the DijkstarasSearch
+    std::vector<Node*>nodeMapPath = AIForGames::DijkstrasSearch(start, end); // Setting the Start and the end to the DijkstarasSearch
     Color linecolour = { 255, 255, 255, 255 }; // Setting the Line colour
 
     
     // Setting Up the Pathing Agent
     PathAgent Agent;
-    Agent.SetNode(Start);
+    Agent.SetNode(start);
     Agent.SetSpeed(64);
 
 
@@ -66,13 +67,40 @@ int main(int argc, char* argv[])
         ClearBackground(BLACK);
         map.Draw(); // Rendering the Map
         
+        if (IsKeyPressed(KeyboardKey::KEY_TAB)) { // Check To See if tab is press Down
+            State++; // Increase the state by which will make it which pathfinding ALG will be use
+                    // 1 will be DijkstrasSearch
+                    // 2 will be A* Search
+            if (State >= 3) { 
+                State = 1;
+            }
+            cout << State << endl;
+        }
+
+
+        if (State == 1) { // Check to see if the state is one to use DijkstrasSearch
+            if (IsMouseButtonPressed(1)) {
+                Vector2 mousepos = GetMousePosition();
+                start = map.GetClosestNode(glm::vec2(mousepos.x, mousepos.y));
+                nodeMapPath = AIForGames::DijkstrasSearch(start, end);
+            }
+
+            if (IsMouseButtonPressed(0)) {
+                Vector2 mousepos = GetMousePosition();
+                end = map.GetClosestNode(glm::vec2(mousepos.x, mousepos.y));
+                nodeMapPath = AIForGames::DijkstrasSearch(start, end);
+            }
+        }
+
+
+
 
         // Setting Up the Player Inputs
-        if (IsMouseButtonPressed(0)) { // Checking To See if the Left Mouse buttion is press
-            Vector2 mousePos = GetMousePosition();
-            Node* end = map.GetClosestNode(glm::vec2(mousePos.x, mousePos.y));
-            Agent.GoToNode(end);
-        }
+        //if (IsMouseButtonPressed(0)) { // Checking To See if the Left Mouse buttion is press
+            //Vector2 mousePos = GetMousePosition();
+            //Node* end = map.GetClosestNode(glm::vec2(mousePos.x, mousePos.y));
+            //Agent.GoToNode(end);
+        //}
 
         Agent.Update(deltaTime);
         Agent.Draw(DARKBLUE);
