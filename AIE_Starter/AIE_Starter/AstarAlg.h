@@ -14,7 +14,7 @@ namespace AIForGames{
             return std::vector<Node*>();
         }
 
-        if (startnode == endnode){
+        if (startnode == endnode){ // dont know why it not working
             std::cout << "Start Node and end Node are on the Same point\n";
             return std::vector<Node*>();
         }

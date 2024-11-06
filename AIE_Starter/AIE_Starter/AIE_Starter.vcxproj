@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AIE_Starter.cpp" />
+    <ClCompile Include="AstarAlg.cpp" />
     <ClCompile Include="NodeMap.cpp" />
     <ClCompile Include="PathAgent.cpp" />
     <ClCompile Include="Pathfinding.cpp" />
@@ -148,6 +149,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AstarAlg.h" />
     <ClInclude Include="NodeMap.h" />
     <ClInclude Include="PathAgent.h" />
     <ClInclude Include="Pathfinding.h" />
