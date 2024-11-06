@@ -2,6 +2,7 @@
 #include "string"
 #include "Pathfinding.h"
 #include "PathfindingAlg.h"
+#include "AstarAlg.h"
 #include "NodeMap.h"
 #include "PathAgent.h"
 #include <stdexcept>
@@ -44,6 +45,7 @@ int main(int argc, char* argv[])
     Node* start = map.GetNode(1, 1); 
     Node* end = map.GetNode(10, 2);
     std::vector<Node*>nodeMapPath = AIForGames::DijkstrasSearch(start, end); // Setting the Start and the end to the DijkstarasSearch
+
     Color linecolour = { 255, 255, 255, 255 }; // Setting the Line colour
 
     

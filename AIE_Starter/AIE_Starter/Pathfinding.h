@@ -35,6 +35,9 @@ namespace AIForGames
         std::vector<Edge> connections;
 
         float gScore;
+        float hScore;
+        float fScore;
+
         Node* previous = NULL;
 
         
