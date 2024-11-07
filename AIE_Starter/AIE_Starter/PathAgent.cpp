@@ -38,36 +38,26 @@ void AIForGames::PathAgent::Update(float deltaTime)
 		m_currentNode++; // increase the current Node by 1
 
 		if (m_currentindex < m_path.size()){
-			toNext = m_path[m_currentindex]->position - m_path[m_currentindex - 1]->position; // Checks to see if there is any more nodes to walk to
+			toNext = m_path[m_currentindex]->position - m_path
+				[m_currentindex - 1]->position; // Checks to see if there is any more nodes to walk to
 			// intill it gets to to end
 
+			directionToNext = glm::normalize(toNext); // Normalizes the Vector 
 
+			m_position = m_path[m_currentindex - 1]->position + (((
+				m_speed * deltaTime) - distance) * directionToNext);
+			//Updates the agents m_position based on speed, time, distance, and direction of 
+			// the m_path next node point
+			
+		}
 
+		else {
+			m_currentNode = m_path.back(); // setting the current node to m_path
+			m_position = m_path.back()->position;  // setting the m_position to the m_path poistion
+			m_path.clear(); // clearing the m_path
 		}
 	}
-
-	
-
-	
-
-	//if we can fully travel (distance < 0)
-	//we will be overshooting/moving past our current node so we cannot use same logic as above
-	//increment currentIndex (the value we are using to step through the vector of nodes (our path)
-	// 
-	// STORE CURRENTNODE IN A TEMP NODE* PREVIOUS NODE
-	// 
-	//if we are at the end of our path (vector of nodes) we can snap to the end node position and clear the path
-	// 
-	// SET CURRENTNODE TO BE M_PATH[CURRENTINDEX]
-	
-	
-
-	// 
-	//if not then we need to calculate a new unit vector from our previous node to our new currentNode
-	//move along this vector by how much we overshot the distance (inverse distance value from negative to positive, multiply by this unit vector)
-
 }
-
 
 
 void AIForGames::PathAgent::SetNode(Node* i_node)
@@ -83,7 +73,7 @@ void AIForGames::PathAgent::SetSpeed(float Speed)
 
 void AIForGames::PathAgent::GetNode()
 {
-
+	// will come back to this
 }
 
 void AIForGames::PathAgent::Draw(Color Colour)
