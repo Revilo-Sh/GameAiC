@@ -4,6 +4,7 @@
 // https://aie.instructure.com/courses/1344/pages/artificial-intelligence-for-games-pathfinding-3-agents // WebLink To Course Page
 // https://cplusplus.com/reference/vector/vector/ Vectors Page
 
+
 void AIForGames::PathAgent::GoToNode(Node* node)
 {
 	m_path = DijkstrasSearch(m_currentNode, node); // Setting the DijkstrasSearch to Map m_path
@@ -14,44 +15,40 @@ void AIForGames::PathAgent::GoToNode(Node* node)
 void AIForGames::PathAgent::Update(float deltaTime)
 {
 	if (m_path.empty()) return; //if there is no path do nothing
+
+	// Setup For the Ai To Walk to The Next Point 
+
+	glm::vec2 toNext = m_path[m_currentindex]->position - m_position; // makes a vector of the path current index to the m_position
+	//  which it dose by subtracting m_path currentindex by m_pos
+	glm::vec2 directionToNext = glm::normalize(toNext); // Get the Deretion of the Next Point Vector by normalizing the toNext Node Pos
+
+	float distance = glm::length(toNext); // returns a float value of the ToLocal vector langth
+	float moveOnNextFrame = distance - m_speed - deltaTime; // get the distance and subtracts its my the speed of the agent and to keep it
+	// in sync do it by deltaTime; 
+
+
+	//if we cannot fully travel, pathagent towards our current node 
+	if (moveOnNextFrame < 0){ 
+		m_position = (m_speed * deltaTime * directionToNext); // if so the pos of the agent added and equal to the speed and what direction to go to woth delta To Keep it synced
+	}
+
+	//if we can fully travel 
+	if (moveOnNextFrame > 0){
+		m_currentNode = m_path[m_currentindex]; // set the Current Node pos to the m_path current index Node pos
+		m_currentNode++; // increase the current Node by 1
+
+		if (m_currentindex < m_path.size()){
+			toNext = m_path[m_currentindex]->position - m_path[m_currentindex - 1]->position; // Checks to see if there is any more nodes to walk to
+			// intill it gets to to end
+
+
+
+		}
+	}
+
 	
 
-	//calculate distance to next node
-	//Both currentnode and pathagent have a vec2 position value, calculate the distance between them and store in a float var
-
-	float dist = (m_position.x + m_position.y) - (m_currentNode->position.x + m_currentNode->position.y);
-
-	if (dist < 0) { // Check to See if Distance is < 0;
-		dist *= -1; // Makes the Number Positive
-	}
-
-
-	//Unit Vector (calculate a normalized directional vector from pathagent to the current node)
-	//To calculate unit vector, calculate translation vector from pathagent position to currentnode position
-	//divide vector components by it's magnitude (divide this translation vector by the distance calculated earlier)
-
-	float result = dist - m_speed * deltaTime; // need more here
-	glm::vec2 direction = m_currentNode->position;
-	direction.x /= dist;
-	direction.y /= dist;
-
-
-		//Subtract speed * deltaTime from the distance (how much we’re going to move this frame)
-	//Distance = how far away from current node
-	//speed * deltaTime = how far pathagent can travel this frame
-	//distance -= speed*deltatime  /=/  can we fully travel to the node this frame?
-
-	if (result > 0) {
-		m_position += m_speed * deltaTime; // need more here
-	}
-
-	//if we cannot fully travel, (distance > 0 still)
-	//this frame we move our pathagent towards our current node 
-	//unit vector * speed * deltatime added to pathagent m_position
-
-	if (dist > 0) {
-
-	}
+	
 
 	//if we can fully travel (distance < 0)
 	//we will be overshooting/moving past our current node so we cannot use same logic as above
