@@ -63,7 +63,7 @@ void AIForGames::PathAgent::Update(float deltaTime)
 	// 
 	// SET CURRENTNODE TO BE M_PATH[CURRENTINDEX]
 	
-
+	
 
 	// 
 	//if not then we need to calculate a new unit vector from our previous node to our new currentNode

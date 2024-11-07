@@ -17,8 +17,8 @@ int main(int argc, char* argv[])
     /////////////////////////////////////////////////////////////////////////////////////////////////
     // WINDOWS SETUP
     /////////////////////////////////////////////////////////////////////////////////////////////////
-    int screenWidth = 715;
-    int screenHeight = 475;
+    int screenWidth = 1200;
+    int screenHeight = 600;
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
     SetTargetFPS(60);
 
@@ -28,17 +28,21 @@ int main(int argc, char* argv[])
     /////////////////////////////////////////////////////////////////////////////////////////////////
 
     std::vector<std::string> asciiMap;
-    asciiMap.push_back("000000000000");
-    asciiMap.push_back("010111011100");
-    asciiMap.push_back("010101110110");
-    asciiMap.push_back("011100000010");
-    asciiMap.push_back("010111111110");
-    asciiMap.push_back("010000001010");
-    asciiMap.push_back("011111111110");
-    asciiMap.push_back("000000000000");
+    asciiMap.push_back("000000000000000000000000");
+    asciiMap.push_back("010111011100000001111110");
+    asciiMap.push_back("010101110111111111000010");
+    asciiMap.push_back("011100000010000010000010");
+    asciiMap.push_back("010111111110000110111010");
+    asciiMap.push_back("010000001010000100001110");
+    asciiMap.push_back("011111111111111110001010");
+    asciiMap.push_back("000101000000010011111110");
+    asciiMap.push_back("011101000000111000010010");
+    asciiMap.push_back("010001111111101111111110");
+    asciiMap.push_back("011111010000111000000010");
+    asciiMap.push_back("000000000000000000000000");
 
     NodeMap map;
-    map.Initialise(asciiMap, 60);
+    map.Initialise(asciiMap, 50);
 
 
     // Setting Up the DijkstrasSearch
@@ -50,7 +54,7 @@ int main(int argc, char* argv[])
     std::vector<Node*>nodeMapPath = AIForGames::DijkstrasSearch(start, end); // Setting the Start and the end to the DijkstarasSearch
     std::vector<Node*>nodeMapPathStar = AIForGames::Astar(start2, end2);
     Color linecolour = { 255, 255, 255, 255 }; // Setting the Line colour
-    Color AStarlineColour = { 255, 255, 240 };
+
 
     
     // Setting Up the Pathing Agent
