@@ -4,12 +4,32 @@
 #include <algorithm>
 #include <iostream>
 
-namespace AIForGames{
+namespace AIForGames
+{
     static bool CompareFscore(const Node* Ihs, const Node* Rhs) {return Ihs->fScore < Rhs->fScore;} 
 
     // https://aie.instructure.com/courses/1344/pages/artificial-intelligence-for-games-a-star The Link the the course Page For this assigment
 
-    static std::vector<Node*> Astar(Node* startNode, Node* endNode) {
+
+    float Heuristic(Node* a, Node* b)
+    {
+        //return distance from a position to b position
+        //glm::distance(a->position, b->position);
+
+        //float thisFloat = 4.0f;
+        //return thisFloat;
+        //return 4.0f;
+
+
+        //float newFloat = glm::distance(a->position, b->position);
+        //return newFloat;
+        //return glm::distance(a->position, b->position);
+
+        return glm::distance(a->position, b->position);
+    }
+
+    static std::vector<Node*> Astar(Node* startNode, Node* endNode) 
+    {
 
         if (startNode == nullptr || endNode == nullptr){
             std::cout << "StartNode / End Node was Nullprt\n";
@@ -33,7 +53,8 @@ namespace AIForGames{
 
         openlist.push_back(startNode);
 
-        while (!openlist.empty()) {
+        while (!openlist.empty()) 
+        {
 
             std::sort(openlist.begin(), openlist.end(), CompareFscore);
             currentNode = openlist.front();
@@ -49,7 +70,8 @@ namespace AIForGames{
                 if (std::find(closeList.begin(), closeList.end(), c.target) == closeList.end()) {
 
                     int gScore = currentNode->gScore + c.cost;
-                    int fScore = currentNode->fScore + c.cost;
+                    int hScore = Heuristic(c.target, endNode);
+                    int fScore = gScore + hScore; // should be gScore + hScore
 
                     if (std::find(openlist.begin(), openlist.end(), c.target) == openlist.end()) {
                         c.target->gScore = gScore;
@@ -76,5 +98,8 @@ namespace AIForGames{
             currentNode = currentNode->previous;
         }
         return Path;
+        
     }
+
+    
 }

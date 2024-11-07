@@ -81,7 +81,7 @@ void AIForGames::PathAgent::SetNode(Node* i_node)
 
 void AIForGames::PathAgent::SetSpeed(float Speed)
 {
-	m_speed == Speed; // Sets The speed of the Agent Based on the Function Speed
+	m_speed = Speed; // Sets The speed of the Agent Based on the Function Speed
 }
 
 void AIForGames::PathAgent::GetNode()

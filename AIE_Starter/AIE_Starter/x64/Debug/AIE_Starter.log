@@ -2,4 +2,10 @@
 C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\PathfindingAlg.h(62,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\PathfindingAlg.h(66,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\PathfindingAlg.h(72,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\AstarAlg.h(72,32): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\AstarAlg.h(73,32): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\AstarAlg.h(77,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\AstarAlg.h(78,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\AstarAlg.h(84,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\AstarAlg.h(85,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   AIE_Starter.vcxproj -> C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\x64\Debug\AIE_Starter.exe

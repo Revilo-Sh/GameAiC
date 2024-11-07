@@ -43,10 +43,14 @@ int main(int argc, char* argv[])
 
     // Setting Up the DijkstrasSearch
     Node* start = map.GetNode(1, 1); 
-    Node* end = map.GetNode(10, 2);
-    std::vector<Node*>nodeMapPath = AIForGames::DijkstrasSearch(start, end); // Setting the Start and the end to the DijkstarasSearch
+    Node* end = map.GetNode(10, 6);
 
+    Node* start2 = map.GetNode(1, 1);
+    Node* end2 = map.GetNode(7, 1);
+    std::vector<Node*>nodeMapPath = AIForGames::DijkstrasSearch(start, end); // Setting the Start and the end to the DijkstarasSearch
+    std::vector<Node*>nodeMapPathStar = AIForGames::Astar(start2, end2);
     Color linecolour = { 255, 255, 255, 255 }; // Setting the Line colour
+    Color AStarlineColour = { 255, 255, 240 };
 
     
     // Setting Up the Pathing Agent
@@ -94,6 +98,20 @@ int main(int argc, char* argv[])
             }
         }
 
+        if (State == 2) { // Check to see if the state is one to use DijkstrasSearch
+            if (IsMouseButtonPressed(1)) {
+                Vector2 mousepos = GetMousePosition();
+                start = map.GetClosestNode(glm::vec2(mousepos.x, mousepos.y));
+                nodeMapPath = AIForGames::Astar(start, end);
+            }
+
+            if (IsMouseButtonPressed(0)) {
+                Vector2 mousepos = GetMousePosition();
+                end = map.GetClosestNode(glm::vec2(mousepos.x, mousepos.y));
+                nodeMapPath = AIForGames::Astar(start2, end2);
+            }
+        }
+
 
 
 
@@ -107,7 +125,9 @@ int main(int argc, char* argv[])
         Agent.Update(deltaTime);
         Agent.Draw(DARKBLUE);
 
+        AIForGames::DrawPath(nodeMapPathStar, BLUE);
         AIForGames::DrawPath(nodeMapPath, GREEN);
+
         EndDrawing();
     }
 
