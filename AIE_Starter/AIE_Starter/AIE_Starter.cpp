@@ -126,6 +126,8 @@ int main(int argc, char* argv[])
             //Agent.GoToNode(end);
         //}
 
+        DrawText("Press Tab To Swtich Between A* or Dijkstras" , 15, 15, 18, WHITE);
+
         Agent.Update(deltaTime);
         Agent.Draw(DARKBLUE);
 
