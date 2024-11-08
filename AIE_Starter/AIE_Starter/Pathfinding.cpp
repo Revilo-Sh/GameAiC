@@ -11,7 +11,7 @@ namespace AIForGames
 		if (path.empty()) return;
 
 
-		for (int i = 0; i < path.size() - 2; i++) 
+		for (int i = 0; i < path.size() - 1; i++) 
 		{
 			DrawLine(path[i]->position.x, path[i]->position.y, path[i + 1]->position.x, path[i + 1]->position.y, color);
 		}
