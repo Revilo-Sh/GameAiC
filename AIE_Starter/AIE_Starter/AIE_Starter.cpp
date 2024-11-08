@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 
     // Setting Up the DijkstrasSearch
     Node* start = map.GetNode(1, 1); 
-    Node* end = map.GetNode(10, 6);
+    Node* end = map.GetNode(1, 2);
 
     Node* start2 = map.GetNode(1, 1);
     Node* end2 = map.GetNode(7, 1);
@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
     
     Agent.SetNode(start2);
     Agent.GoToNode(start2);
-    Agent.SetSpeed(80);
+    Agent.SetSpeed(200);
 
 
 
