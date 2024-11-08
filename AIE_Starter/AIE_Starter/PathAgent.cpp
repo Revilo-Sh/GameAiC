@@ -82,6 +82,6 @@ void AIForGames::PathAgent::Draw(Color Colour)
 
 	if (!m_path.empty())
 	{
-		DrawPath(m_path, Colour);
+		DrawPath(m_path, Colour); // calles the draw path uilt and draw a path on where to go
 	}
 }

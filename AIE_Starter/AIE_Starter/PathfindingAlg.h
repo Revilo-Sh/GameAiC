@@ -4,6 +4,17 @@
 #include <algorithm>
 #include <iostream>
 
+////////////////////////////////////////////
+// 
+// The Header Should be Named DijkstrasSearch
+// But By The time it was done there was too
+// meny calls to this header so i could not
+// chnage the name so thats why its called
+// PathfindingAlg.h not DijkstrasSearch.h
+// 
+/////////////////////////////////////////////
+
+
 namespace AIForGames
 {
 	static bool CompareGScore(const Node* Ihs, const Node* Rhs) { return Ihs->gScore < Rhs->gScore; }
