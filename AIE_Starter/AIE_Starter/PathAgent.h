@@ -13,12 +13,6 @@ namespace AIForGames {
 
 	class PathAgent
 	{
-	public:
-		PathAgent() {}
-		PathAgent(NodeMap* _nodeMap, Behaviour* _behaviour) : m_current(_behaviour), m_nodeMap(_nodeMap), m_color({ 255, 255, 0, 255 }) {}
-		~PathAgent() { delete m_current; }
-
-
 	private:
 		// All the Pathfinding Movment Verables
 		glm::vec2 m_position;

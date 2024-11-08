@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
     
     Agent.SetNode(start2);
     Agent.GoToNode(start2);
-    Agent.SetSpeed(200);
+    Agent.SetSpeed(1000);
 
 
 
