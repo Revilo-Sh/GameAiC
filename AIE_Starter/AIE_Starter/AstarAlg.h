@@ -49,7 +49,7 @@ namespace AIForGames
         std::vector<Node*> openlist;
         std::vector<Node*> closeList;
 
-        Node* currentNode;
+        Node* currentNode; // making the current node verable
 
         openlist.push_back(startNode);
 
