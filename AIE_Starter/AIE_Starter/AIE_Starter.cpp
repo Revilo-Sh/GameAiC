@@ -5,11 +5,20 @@
 #include "AstarAlg.h"
 #include "NodeMap.h"
 #include "PathAgent.h"
+#include "AgentsFSM.h"
+
+#include "GotoPointBehaviourFSM.h"
+#include "FollowBehaviourFSM.h"
+#include "WanderBehaviourFSM.h"
+#include "SelectorBehaviourFSM.h"
+
 #include <stdexcept>
 #include <iostream>
 
+
 using namespace std;
 using namespace AIForGames;
+
 
 int main(int argc, char* argv[])
 {
@@ -56,15 +65,28 @@ int main(int argc, char* argv[])
     Color linecolour = { 255, 255, 255, 255 }; // Setting the Line colour
 
 
-    
-    // Setting Up the Pathing Agent
-    PathAgent Agent;
-    
-    Agent.SetNode(start2);
-    Agent.GoToNode(start2);
-    Agent.SetSpeed(1000);
+    //
+    //// Setting Up the Pathing Agent
+    //PathAgent Agent;
+    //
+    //Agent.SetNode(start2);
+    //Agent.GoToNode(start2);
+    //Agent.SetSpeed(1000);
+
+    // FSM Agents
+    //AgentsFSM FSM_Agent(&map, new GotoPointBehaviourFSM());
+    AgentsFSM FSM_Agent(&map, new GotoPointBehaviourFSM());
+    FSM_Agent.SetNode(start);
 
 
+
+    AgentsFSM FSM_Agent2(&map, new WanderBehaviourFSM());
+    FSM_Agent2.SetNode(map.GetRandomNode());
+    
+    AgentsFSM FSM_Agent3(&map, new SelectorBehaviourFSM(new FollowBehaviourFSM(), new WanderBehaviourFSM()));;
+    FSM_Agent3.SetNode(map.GetRandomNode());
+    FSM_Agent3.SetTarget(&FSM_Agent2); // Dose not Work
+    FSM_Agent3.SetSpeed(32);
 
 
     float time = (float)GetTime();
@@ -116,13 +138,7 @@ int main(int argc, char* argv[])
 
         if (State == 2) { // Check to see if the state is one to use DijkstrasSearch
 
-            if (IsMouseButtonPressed(0)) {
-                Vector2 mousepos = GetMousePosition();
-                end2 = map.GetClosestNode(glm::vec2(mousepos.x, mousepos.y));
-                nodeMapPathStar = AIForGames::Astar(start2, end2);
-                Agent.GoToNode(end2);
-                
-            }
+
         }
 
         Agent.Update(deltaTime);

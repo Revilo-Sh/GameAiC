@@ -16,6 +16,7 @@ namespace AIForGames {
 	private:
 		// All the Pathfinding Movment Verables
 		glm::vec2 m_position;
+
 		int m_currentindex;
 		Node* m_currentNode;
 		float m_speed;
@@ -30,6 +31,11 @@ namespace AIForGames {
 		void SetNode(Node* i_node); 
 		void SetSpeed(float Speed); // Set the Speed Of the Agent
 		void GetNode();// Get the Node it is on
+
+	
+
+		glm::vec2 GetPosition() { return m_currentNode->position; }
+
 	};
 }
 

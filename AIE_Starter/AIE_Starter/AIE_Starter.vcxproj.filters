@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\FSM_cpp">
+      <UniqueIdentifier>{baf35e95-09de-440a-9eac-3f247fb3a0dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FSM_h">
+      <UniqueIdentifier>{f8c2815a-f2ec-4318-9e2b-e50e2f5faa7f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AIE_Starter.cpp">
@@ -28,9 +34,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AgentsFSM.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\FSM_cpp</Filter>
     </ClCompile>
     <ClCompile Include="BehavioursFSM.cpp">
+      <Filter>Source Files\FSM_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="FollowBehaviourFSM.cpp">
+      <Filter>Source Files\FSM_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="GotoPointBehaviourFSM.cpp">
+      <Filter>Source Files\FSM_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderBehaviourFSM.cpp">
+      <Filter>Source Files\FSM_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectorBehaviourFSM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,9 +72,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AgentsFSM.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\FSM_h</Filter>
     </ClInclude>
     <ClInclude Include="BehavioursFSM.h">
+      <Filter>Header Files\FSM_h</Filter>
+    </ClInclude>
+    <ClInclude Include="FollowBehaviourFSM.h">
+      <Filter>Header Files\FSM_h</Filter>
+    </ClInclude>
+    <ClInclude Include="GotoPointBehaviourFSM.h">
+      <Filter>Header Files\FSM_h</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderBehaviourFSM.h">
+      <Filter>Header Files\FSM_h</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectorBehaviourFSM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

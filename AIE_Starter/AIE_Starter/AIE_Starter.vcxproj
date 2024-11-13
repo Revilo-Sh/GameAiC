@@ -142,9 +142,13 @@
     <ClCompile Include="AgentsFSM.cpp" />
     <ClCompile Include="AIE_Starter.cpp" />
     <ClCompile Include="BehavioursFSM.cpp" />
+    <ClCompile Include="FollowBehaviourFSM.cpp" />
+    <ClCompile Include="GotoPointBehaviourFSM.cpp" />
     <ClCompile Include="NodeMap.cpp" />
     <ClCompile Include="PathAgent.cpp" />
     <ClCompile Include="Pathfinding.cpp" />
+    <ClCompile Include="SelectorBehaviourFSM.cpp" />
+    <ClCompile Include="WanderBehaviourFSM.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -153,10 +157,14 @@
     <ClInclude Include="AgentsFSM.h" />
     <ClInclude Include="AstarAlg.h" />
     <ClInclude Include="BehavioursFSM.h" />
+    <ClInclude Include="FollowBehaviourFSM.h" />
+    <ClInclude Include="GotoPointBehaviourFSM.h" />
     <ClInclude Include="NodeMap.h" />
     <ClInclude Include="PathAgent.h" />
     <ClInclude Include="Pathfinding.h" />
     <ClInclude Include="PathfindingAlg.h" />
+    <ClInclude Include="SelectorBehaviourFSM.h" />
+    <ClInclude Include="WanderBehaviourFSM.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

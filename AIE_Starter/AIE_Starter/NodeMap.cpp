@@ -105,6 +105,17 @@ namespace AIForGames
 		return GetNode(i, j);
 		
 	}
+	Node* NodeMap::GetRandomNode()
+	{
+		Node* node = nullptr;
+		while (node == nullptr)
+		{
+			int x = rand() % m_with;
+			int y = rand() % m_height;
+			node = GetNode(x, y);
+		}
+		return node;
+	}
 }
 
 
