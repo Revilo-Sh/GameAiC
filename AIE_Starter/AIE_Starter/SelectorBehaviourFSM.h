@@ -1,8 +1,10 @@
 #pragma once
 #include "BehavioursFSM.h"
 
+
+
 namespace AIForGames {
-	class SelectorBehaviourFSM : BehavioursFSM
+	class SelectorBehaviourFSM : public BehavioursFSM
 	{
 	private:
 		BehavioursFSM* m_b1;

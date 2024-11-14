@@ -2,7 +2,7 @@
 
 void AIForGames::SelectorBehaviourFSM::Update(AgentsFSM* agent, float deltaTime)
 {
-	if (Vector2Distance(agent->GetPosition(), agent->GetTarget()->GetNodeMap()) < agent->GetNodeMap()->GetcellSize() * 5) {
+	if (glm::distance(agent->m_pathAgent.GetPosition(), agent->GetTarget()->m_pathAgent.GetPosition()) < agent->GetNodeMap()->GetcellSize() * 5) {
 		SetBehaviour(m_b1, agent);
 	}
 	else

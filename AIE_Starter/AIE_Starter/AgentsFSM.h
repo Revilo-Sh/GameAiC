@@ -3,7 +3,7 @@
 #include "PathAgent.h"
 #include <iostream>
 
-class BehavioursFSM;
+
 
 //https://aie.instructure.com/courses/1344/pages/artificial-intelligence-for-games-decision-making-1-agents-and-behaviours
 
@@ -11,19 +11,14 @@ class BehavioursFSM;
 namespace AIForGames
 {
 
+    class BehavioursFSM;
+
     class AgentsFSM
     {
     public:
        AgentsFSM() {}
        ~AgentsFSM() {}
        AgentsFSM(NodeMap* nodeMap, BehavioursFSM* Behaviour) : m_current(Behaviour), m_nodeMap(nodeMap), m_colour(RED) {}
-       //AgentsFSM(NodeMap* nodeMap, BehavioursFSM* b)
-       //{
-       //    m_current = b;
-       //    m_nodeMap = nodeMap;
-       //    m_colour = RED;
-       //}
-       //
        
 
     public:
@@ -31,11 +26,14 @@ namespace AIForGames
        void GoTo(glm::vec2 pos);
        void Reset();
        void SetNode(Node* Startpoint) { m_pathAgent.SetNode(Startpoint); }
+       void Draw(Color Colour);
+       void SetSpeed(float Speed) { m_pathAgent.SetSpeed(Speed); }
+
        bool PathComplete();
 
-       AgentsFSM* SetTarget(AgentsFSM* Target);
+       void SetTarget(AgentsFSM* Target) { m_Target = Target; }
        AgentsFSM* GetTarget() { return m_Target; }
-       
+
     
     public:
        PathAgent m_pathAgent;
@@ -43,7 +41,7 @@ namespace AIForGames
        NodeMap* m_nodeMap;
        Color m_colour;
        AgentsFSM* m_Target;
-  
+        
        NodeMap* GetNodeMap() { return m_nodeMap; }
 
     };
