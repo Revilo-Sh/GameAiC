@@ -51,6 +51,12 @@
     <ClCompile Include="SelectorBehaviourFSM.cpp">
       <Filter>Source Files\FSM_cpp</Filter>
     </ClCompile>
+    <ClCompile Include="_Condition.cpp">
+      <Filter>Source Files\FSM_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="_State.cpp">
+      <Filter>Source Files\FSM_cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -87,6 +93,12 @@
       <Filter>Header Files\FSM_h</Filter>
     </ClInclude>
     <ClInclude Include="SelectorBehaviourFSM.h">
+      <Filter>Header Files\FSM_h</Filter>
+    </ClInclude>
+    <ClInclude Include="_Condition.h">
+      <Filter>Header Files\FSM_h</Filter>
+    </ClInclude>
+    <ClInclude Include="_State.h">
       <Filter>Header Files\FSM_h</Filter>
     </ClInclude>
   </ItemGroup>

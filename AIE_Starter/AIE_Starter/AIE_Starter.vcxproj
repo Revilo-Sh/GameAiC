@@ -149,6 +149,8 @@
     <ClCompile Include="Pathfinding.cpp" />
     <ClCompile Include="SelectorBehaviourFSM.cpp" />
     <ClCompile Include="WanderBehaviourFSM.cpp" />
+    <ClCompile Include="_Condition.cpp" />
+    <ClCompile Include="_State.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -165,6 +167,8 @@
     <ClInclude Include="PathfindingAlg.h" />
     <ClInclude Include="SelectorBehaviourFSM.h" />
     <ClInclude Include="WanderBehaviourFSM.h" />
+    <ClInclude Include="_Condition.h" />
+    <ClInclude Include="_State.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
