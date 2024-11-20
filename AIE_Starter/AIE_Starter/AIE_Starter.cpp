@@ -65,33 +65,26 @@ int main(int argc, char* argv[])
     Color linecolour = { 255, 255, 255, 255 }; // Setting the Line colour
 
 
-    
-    // Setting Up the Pathing Agent
-    PathAgent Agent;
-    
-    Agent.SetNode(start2);
-    Agent.GoToNode(start2);
-    Agent.SetSpeed(1000);
+    //
+    //// Setting Up the Pathing Agent
+    //PathAgent Agent;
+    //
+    //Agent.SetNode(start2);
+    //Agent.GoToNode(start2);
+    //Agent.SetSpeed(1000);
 
     // FSM Agents
     //AgentsFSM FSM_Agent(&map, new GotoPointBehaviourFSM());
     AgentsFSM FSM_Agent(&map, new GotoPointBehaviourFSM());
-    FSM_Agent.SetNode(map.GetRandomNode());
-    FSM_Agent.SetSpeed(200);
+    FSM_Agent.SetNode(start);
 
-    AgentsFSM FSM_AgentWander(&map, new WanderBehaviourFSM());
-    FSM_AgentWander.SetNode(map.GetRandomNode());
-    FSM_AgentWander.SetSpeed(200);
-
-    AgentsFSM FSM_AgentFollow(&map, new FollowBehaviourFSM());
-    FSM_AgentFollow.SetNode(map.GetRandomNode());
-    FSM_AgentFollow.SetTarget(&FSM_Agent);
-    FSM_AgentFollow.SetSpeed(50);
-
-    AgentsFSM FSM_AgentsSelctor(&map, new SelectorBehaviourFSM( new FollowBehaviourFSM(), new WanderBehaviourFSM()));
-    FSM_AgentsSelctor.SetNode(map.GetRandomNode());
-    FSM_AgentsSelctor.SetTarget(&FSM_Agent);
-    FSM_AgentsSelctor.SetSpeed(100);
+    AgentsFSM FSM_Agent2(&map, new WanderBehaviourFSM());
+    FSM_Agent2.SetNode(map.GetRandomNode());
+    
+    AgentsFSM FSM_Agent3(&map, new SelectorBehaviourFSM(new FollowBehaviourFSM(), new WanderBehaviourFSM()));;
+    FSM_Agent3.SetNode(map.GetRandomNode());
+    FSM_Agent3.SetTarget(&FSM_Agent2); // Dose not Work
+    FSM_Agent3.SetSpeed(32);
 
 
     float time = (float)GetTime();
@@ -146,25 +139,12 @@ int main(int argc, char* argv[])
 
         }
 
-        // THE FSM Agents 
-        FSM_Agent.Update(deltaTime);
-        FSM_Agent.Draw(BLUE);
-
-        FSM_AgentWander.Update(deltaTime);
-        FSM_AgentWander.Draw(YELLOW);
-
-        FSM_AgentFollow.Update(deltaTime);
-        FSM_AgentFollow.Draw(RED);
-
-        FSM_AgentsSelctor.Update(deltaTime);
-        FSM_AgentsSelctor.Draw(BROWN);
-
-        //Agent.Update(deltaTime);
-        //Agent.Draw(DARKBLUE);
+       // Agent.Update(deltaTime);
+       // Agent.Draw(DARKBLUE);
 
         AIForGames::DrawPath(nodeMapPath, GREEN);
 
-      
+        DrawText("Press Tab To Swtich Between A* or Dijkstras" , 15, 15, 18, WHITE);
 
         EndDrawing();
     }
