@@ -7,6 +7,7 @@ namespace AIForGames {
 	{
 	public:
 		void Update(AgentsFSM* agent, float deltaTime) override;
+		float Evaluate(AgentsFSM* agent);
 
 	private:
 		glm::vec2 LastTargetPosition;

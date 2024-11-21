@@ -11,6 +11,8 @@ namespace AIForGames {
 	{
 	public:
 		void Update(AgentsFSM* agent, float deltaTime) override;
+		float Evaluate(AgentsFSM* agent);
+
 	private:
 		Node* Temp;
 	};

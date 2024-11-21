@@ -16,6 +16,7 @@
 #include "_DistanceCondition.h"
 #include "_FiniteStateMachine.h"
 #include "_State.h"
+#include "_UtilityAi.h"
 
 
 #include <stdexcept>
@@ -95,11 +96,24 @@ int main(int argc, char* argv[])
     fsm->AddState(wanderState);
     fsm->AddState(followState);
 
-    AgentsFSM FSM_Agent3(&map, fsm); 
+
+
+
+    _UtilityAi* FSM_utilityAi = new _UtilityAi();
+    FSM_utilityAi->AddBehaviour(new WanderBehaviourFSM());
+    FSM_utilityAi->AddBehaviour(new FollowBehaviourFSM());
+
+
+
+
+
+    AgentsFSM FSM_Agent3(&map, FSM_utilityAi); 
     FSM_Agent3.SetNode(map.GetRandomNode());
     FSM_Agent3.SetTarget(&FSM_Agent);
     FSM_Agent3.SetSpeed(150);
 
+
+    
 
 
     float time = (float)GetTime();

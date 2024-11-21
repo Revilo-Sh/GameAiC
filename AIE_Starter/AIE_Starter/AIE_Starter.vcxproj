@@ -153,6 +153,7 @@
     <ClCompile Include="_DistanceCondition.cpp" />
     <ClCompile Include="_FiniteStateMachine.cpp" />
     <ClCompile Include="_State.cpp" />
+    <ClCompile Include="_UtilityAi.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -173,6 +174,7 @@
     <ClInclude Include="_DistanceCondition.h" />
     <ClInclude Include="_FiniteStateMachine.h" />
     <ClInclude Include="_State.h" />
+    <ClInclude Include="_UtilityAi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

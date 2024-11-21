@@ -63,6 +63,9 @@
     <ClCompile Include="_DistanceCondition.cpp">
       <Filter>Source Files\FSM_cpp</Filter>
     </ClCompile>
+    <ClCompile Include="_UtilityAi.cpp">
+      <Filter>Source Files\FSM_cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -111,6 +114,9 @@
       <Filter>Header Files\FSM_h</Filter>
     </ClInclude>
     <ClInclude Include="_DistanceCondition.h">
+      <Filter>Header Files\FSM_h</Filter>
+    </ClInclude>
+    <ClInclude Include="_UtilityAi.h">
       <Filter>Header Files\FSM_h</Filter>
     </ClInclude>
   </ItemGroup>
