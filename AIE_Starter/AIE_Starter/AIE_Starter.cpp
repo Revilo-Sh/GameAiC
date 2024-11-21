@@ -12,6 +12,12 @@
 #include "WanderBehaviourFSM.h"
 #include "SelectorBehaviourFSM.h"
 
+#include "_Condition.h"
+#include "_DistanceCondition.h"
+#include "_FiniteStateMachine.h"
+#include "_State.h"
+
+
 #include <stdexcept>
 #include <iostream>
 
@@ -64,27 +70,36 @@ int main(int argc, char* argv[])
     std::vector<Node*>nodeMapPathStar = AIForGames::Astar(start2, end2);
     Color linecolour = { 255, 255, 255, 255 }; // Setting the Line colour
 
-
-    //
-    //// Setting Up the Pathing Agent
-    //PathAgent Agent;
-    //
-    //Agent.SetNode(start2);
-    //Agent.GoToNode(start2);
-    //Agent.SetSpeed(1000);
-
-    // FSM Agents
-    //AgentsFSM FSM_Agent(&map, new GotoPointBehaviourFSM());
     AgentsFSM FSM_Agent(&map, new GotoPointBehaviourFSM());
     FSM_Agent.SetNode(start);
+    FSM_Agent.SetSpeed(200);
 
-    AgentsFSM FSM_Agent2(&map, new WanderBehaviourFSM());
+    AgentsFSM FSM_Agent2(&map, new FollowBehaviourFSM());
     FSM_Agent2.SetNode(map.GetRandomNode());
+    FSM_Agent2.SetTarget(&FSM_Agent);
+    FSM_Agent2.SetSpeed(25);
     
-    AgentsFSM FSM_Agent3(&map, new SelectorBehaviourFSM(new FollowBehaviourFSM(), new WanderBehaviourFSM()));;
+
+    // Setting Up the FSM  COnditions
+    
+    _DistanceCondition* closerThan5 = new _DistanceCondition(5.0f * map.GetcellSize(), true);
+    _DistanceCondition* furtherThan7 = new _DistanceCondition(7.0f * map.GetcellSize(), false);
+
+    // Setting Up all the States
+    _State* wanderState = new _State(new WanderBehaviourFSM());
+    _State* followState = new _State(new FollowBehaviourFSM());
+    wanderState->AddTransitions(closerThan5, followState);
+    followState->AddTransitions(furtherThan7, wanderState);
+    
+    _FiniteStateMachine* fsm = new _FiniteStateMachine(wanderState);
+    fsm->AddState(wanderState);
+    fsm->AddState(followState);
+
+    AgentsFSM FSM_Agent3(&map, fsm); 
     FSM_Agent3.SetNode(map.GetRandomNode());
-    FSM_Agent3.SetTarget(&FSM_Agent2); // Dose not Work
-    FSM_Agent3.SetSpeed(32);
+    FSM_Agent3.SetTarget(&FSM_Agent);
+    FSM_Agent3.SetSpeed(150);
+
 
 
     float time = (float)GetTime();
@@ -103,21 +118,14 @@ int main(int argc, char* argv[])
         deltaTime = fTime - time;
         time = fTime;
 
-
+        FSM_Agent.Update(deltaTime);
+        FSM_Agent2.Update(deltaTime);
+        FSM_Agent3.Update(deltaTime);
 
 
         ClearBackground(BLACK);
         map.Draw(); // Rendering the Map
-        
-        if (IsKeyPressed(KeyboardKey::KEY_TAB)) { // Check To See if tab is press Down
-            State++; // Increase the state by which will make it which pathfinding ALG will be use
-                    // 1 will be DijkstrasSearch
-                    // 2 will be A* Search
-            if (State >= 3) { 
-                State = 1;
-            }
-            cout << State << endl;
-        }
+       
 
 
         if (State == 1) { // Check to see if the state is one to use DijkstrasSearch
@@ -134,17 +142,13 @@ int main(int argc, char* argv[])
             }
         }
 
-        if (State == 2) { // Check to see if the state is one to use DijkstrasSearch
 
+        FSM_Agent.Draw(BLUE);
+        FSM_Agent2.Draw(RED);
+        FSM_Agent3.Draw(YELLOW);
 
-        }
-
-       // Agent.Update(deltaTime);
-       // Agent.Draw(DARKBLUE);
 
         AIForGames::DrawPath(nodeMapPath, GREEN);
-
-        DrawText("Press Tab To Swtich Between A* or Dijkstras" , 15, 15, 18, WHITE);
 
         EndDrawing();
     }

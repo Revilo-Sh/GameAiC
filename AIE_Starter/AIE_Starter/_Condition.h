@@ -1,5 +1,13 @@
 #pragma once
-class _Condition
-{
-};
+#include "AgentsFSM.h"
+
+namespace AIForGames {
+	class _Condition
+	{
+	public: 
+		virtual bool IsTrue(AgentsFSM* agent) = 0;
+	};
+}
+
+
 

@@ -1,8 +1,11 @@
-#include "AgentsFSM.h"
 #include "BehavioursFSM.h"
+#include "AgentsFSM.h"
 
 
-
+AIForGames::AgentsFSM::AgentsFSM(NodeMap* nodeMap, BehavioursFSM* Behaviour) : m_current(Behaviour), m_nodeMap(nodeMap), m_colour(RED) 
+{
+    m_current->Enter(this);
+}
 
 void AIForGames::AgentsFSM::Update(float deltaTime)
 {

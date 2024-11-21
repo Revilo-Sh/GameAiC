@@ -8,3 +8,7 @@ C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\PathAgent.cpp;
 C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\Pathfinding.cpp;C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\x64\Debug\Pathfinding.obj
 C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\SelectorBehaviourFSM.cpp;C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\x64\Debug\SelectorBehaviourFSM.obj
 C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\WanderBehaviourFSM.cpp;C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\x64\Debug\WanderBehaviourFSM.obj
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\_Condition.cpp;C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\x64\Debug\_Condition.obj
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\_DistanceCondition.cpp;C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\x64\Debug\_DistanceCondition.obj
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\_FiniteStateMachine.cpp;C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\x64\Debug\_FiniteStateMachine.obj
+C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\_State.cpp;C:\Users\s213812\Documents\GitHub\GameAiC\AIE_Starter\AIE_Starter\x64\Debug\_State.obj

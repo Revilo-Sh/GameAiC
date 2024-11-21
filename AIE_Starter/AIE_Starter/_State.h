@@ -1,5 +1,6 @@
 #pragma once
 #include "AgentsFSM.h"
+#include "BehavioursFSM.h"
 #include "_Condition.h"
 
 
@@ -10,10 +11,12 @@ namespace AIForGames {
 	{
 	public:
 		struct Transition {
-		_Condition* condition;
-		_State* TargetState;
-
+			_Condition* condition;
+			_State* TargetState;
 		};
+
+
+
 	
 	private:
 		std::vector<BehavioursFSM*> m_Behaviours;
@@ -21,9 +24,24 @@ namespace AIForGames {
 		
 
 	public:
-		_State();
+		_State(BehavioursFSM* b1) { m_Behaviours.push_back(b1); }
 		~_State();
+
 		virtual void Update(AgentsFSM* agent, float deltaTime);
+		virtual void Enter(AgentsFSM* agent) {}
+		virtual void Exit(AgentsFSM* agent) {}
+
+		std::vector<Transition> GetTransitions() { return m_Transition;}
+
+		void AddTransitions(_Condition* Condition, _State* State) {
+			Transition NewTransition;
+
+			NewTransition.condition = Condition;
+			NewTransition.TargetState = State;
+
+			m_Transition.push_back(NewTransition);
+		}
+
 	};
 }
 

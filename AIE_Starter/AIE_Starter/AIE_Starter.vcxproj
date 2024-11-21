@@ -150,6 +150,8 @@
     <ClCompile Include="SelectorBehaviourFSM.cpp" />
     <ClCompile Include="WanderBehaviourFSM.cpp" />
     <ClCompile Include="_Condition.cpp" />
+    <ClCompile Include="_DistanceCondition.cpp" />
+    <ClCompile Include="_FiniteStateMachine.cpp" />
     <ClCompile Include="_State.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +170,8 @@
     <ClInclude Include="SelectorBehaviourFSM.h" />
     <ClInclude Include="WanderBehaviourFSM.h" />
     <ClInclude Include="_Condition.h" />
+    <ClInclude Include="_DistanceCondition.h" />
+    <ClInclude Include="_FiniteStateMachine.h" />
     <ClInclude Include="_State.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
